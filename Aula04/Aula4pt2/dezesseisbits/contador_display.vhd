@@ -1,0 +1,78 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity contador_display is
+    Port (
+        Clk     : in  STD_LOGIC;
+        Clear     : in  STD_LOGIC;
+        displays: out STD_LOGIC_VECTOR (27 downto 0)  -- 4 displays de 7 segmentos
+    );
+end contador_display;
+
+architecture Behavioral of contador_display is
+    signal cnt     : STD_LOGIC_VECTOR (15 downto 0); -- VALOR DO CONTADOR
+    signal dig0    : STD_LOGIC_VECTOR (3 downto 0); -- nibble 0 (menor ordem)
+    signal dig1    : STD_LOGIC_VECTOR (3 downto 0);
+    signal dig2    : STD_LOGIC_VECTOR (3 downto 0);
+    signal dig3    : STD_LOGIC_VECTOR (3 downto 0); -- nibble 3 (maior ordem)
+    signal seg0    : STD_LOGIC_VECTOR (6 downto 0); -- saida dos seg DISPLAY 0
+    signal seg1    : STD_LOGIC_VECTOR (6 downto 0);
+    signal seg2    : STD_LOGIC_VECTOR (6 downto 0);
+    signal seg3    : STD_LOGIC_VECTOR (6 downto 0); -- saida dos seg DISPLAY 3
+    
+	 -- componentes instanciados
+    component dezesseisbits -- contador
+        Port (
+            Clk   : in  STD_LOGIC; 
+            Clear   : in  STD_LOGIC;
+            counter_out : out STD_LOGIC_VECTOR (15 downto 0) -- contador
+        );
+    end component;
+
+    component display
+        Port ( 
+            binary_in : in  STD_LOGIC_VECTOR (3 downto 0); -- entrada de 4 bits
+            seg : out STD_LOGIC_VECTOR (6 downto 0) -- saida dos 7 seg
+        );
+    end component;
+
+begin
+	-- inicia o contador de 16 bits
+    U1: dezesseisbits -- CONECTA O clock, clear e o contador
+        Port map (
+            Clk   => Clk,
+            Clear   => Clear,
+            counter_out => cnt
+        );
+	-- divide o valor de 16 bits em 4 nibbles
+    dig0 <= cnt(3 downto 0); -- nibble MeNOS SIGNIFICATIVO
+    dig1 <= cnt(7 downto 4);
+    dig2 <= cnt(11 downto 8);
+    dig3 <= cnt(15 downto 12); -- nibble MAIS SIGNIFICATIVO
+	-- instancia o display para cada nibble
+    U2: display
+        Port map (
+            binary_in => dig3, -- conecta o nibble 
+            seg => seg0 -- conecta a saida 
+        );
+
+    U3: display
+        Port map (
+            binary_in => dig2,
+            seg => seg1
+        );
+
+    U4: display
+        Port map (
+            binary_in => dig1,
+            seg => seg2
+        );
+
+    U5: display
+        Port map (
+            binary_in => dig0,
+            seg => seg3
+        );
+	-- concatena as saidas dos displays em um vetor de 28 bits
+    displays <= seg0 & seg1 & seg2 & seg3;
+end Behavioral;

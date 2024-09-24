@@ -1,0 +1,23 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+	ENTITY T_flip_flop IS
+		PORT ( Clk, T, clear : IN STD_LOGIC;
+				Q : OUT STD_LOGIC);
+END T_flip_flop;
+
+ARCHITECTURE Structural OF T_flip_flop IS
+	SIGNAL OUTPUT : STD_LOGIC ;
+BEGIN
+PROCESS(clk)
+BEGIN
+IF falling_eedge(Clk) THEN
+IF clear = '1' THEN
+OUTPUT = '0';
+ELSIF T = '1' THEN
+OUTPUT = NOT(OUTPUT)
+ELSE 
+OUTPUT => OUTPUT 
+END IF;
+END PROCESS;
+Q => OUTPUT;
+END Structural;

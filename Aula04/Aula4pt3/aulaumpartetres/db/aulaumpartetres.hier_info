@@ -1,0 +1,101 @@
+|aulaumpartetres
+Clk => contador_um_segundo:instancia1.Clk
+Clk => numeros:instancia2.Clk
+hex0[0] <= display:instancia3.seg[0]
+hex0[1] <= display:instancia3.seg[1]
+hex0[2] <= display:instancia3.seg[2]
+hex0[3] <= display:instancia3.seg[3]
+hex0[4] <= display:instancia3.seg[4]
+hex0[5] <= display:instancia3.seg[5]
+hex0[6] <= display:instancia3.seg[6]
+
+
+|aulaumpartetres|contador_um_segundo:instancia1
+Clk => T~reg0.CLK
+Clk => count[0].CLK
+Clk => count[1].CLK
+Clk => count[2].CLK
+Clk => count[3].CLK
+Clk => count[4].CLK
+Clk => count[5].CLK
+Clk => count[6].CLK
+Clk => count[7].CLK
+Clk => count[8].CLK
+Clk => count[9].CLK
+Clk => count[10].CLK
+Clk => count[11].CLK
+Clk => count[12].CLK
+Clk => count[13].CLK
+Clk => count[14].CLK
+Clk => count[15].CLK
+Clk => count[16].CLK
+Clk => count[17].CLK
+Clk => count[18].CLK
+Clk => count[19].CLK
+Clk => count[20].CLK
+Clk => count[21].CLK
+Clk => count[22].CLK
+Clk => count[23].CLK
+Clk => count[24].CLK
+Clk => count[25].CLK
+Clk => count[26].CLK
+Clk => count[27].CLK
+Clk => count[28].CLK
+Clk => count[29].CLK
+Clk => count[30].CLK
+T <= T~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|aulaumpartetres|numeros:instancia2
+Clk => count[0].CLK
+Clk => count[1].CLK
+Clk => count[2].CLK
+Clk => count[3].CLK
+T => count[0].ENA
+T => count[1].ENA
+T => count[2].ENA
+T => count[3].ENA
+num[0] <= count[0].DB_MAX_OUTPUT_PORT_TYPE
+num[1] <= count[1].DB_MAX_OUTPUT_PORT_TYPE
+num[2] <= count[2].DB_MAX_OUTPUT_PORT_TYPE
+num[3] <= count[3].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|aulaumpartetres|display:instancia3
+digit[0] => Mux0.IN19
+digit[0] => Mux1.IN19
+digit[0] => Mux2.IN19
+digit[0] => Mux3.IN19
+digit[0] => Mux4.IN19
+digit[0] => Mux5.IN19
+digit[0] => Mux6.IN19
+digit[1] => Mux0.IN18
+digit[1] => Mux1.IN18
+digit[1] => Mux2.IN18
+digit[1] => Mux3.IN18
+digit[1] => Mux4.IN18
+digit[1] => Mux5.IN18
+digit[1] => Mux6.IN18
+digit[2] => Mux0.IN17
+digit[2] => Mux1.IN17
+digit[2] => Mux2.IN17
+digit[2] => Mux3.IN17
+digit[2] => Mux4.IN17
+digit[2] => Mux5.IN17
+digit[2] => Mux6.IN17
+digit[3] => Mux0.IN16
+digit[3] => Mux1.IN16
+digit[3] => Mux2.IN16
+digit[3] => Mux3.IN16
+digit[3] => Mux4.IN16
+digit[3] => Mux5.IN16
+digit[3] => Mux6.IN16
+seg[0] <= Mux6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= Mux5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

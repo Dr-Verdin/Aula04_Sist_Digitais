@@ -1,0 +1,45 @@
+|fourbits
+Clk => T_flip_flop:tff0.Clk
+Clk => T_flip_flop:tff1.Clk
+Clk => T_flip_flop:tff2.Clk
+Clk => T_flip_flop:tff3.Clk
+T => T1.IN1
+T => T_flip_flop:tff0.T
+clear => T_flip_flop:tff0.clear
+clear => T_flip_flop:tff1.clear
+clear => T_flip_flop:tff2.clear
+clear => T_flip_flop:tff3.clear
+Q1 << T_flip_flop:tff0.Q
+Q2 << T_flip_flop:tff1.Q
+Q3 << T_flip_flop:tff2.Q
+Q4 << T_flip_flop:tff3.Q
+
+
+|fourbits|T_flip_flop:tff0
+Clk => OUTPUT.CLK
+T => OUTPUT.OUTPUTSELECT
+clear => OUTPUT.OUTPUTSELECT
+Q <= OUTPUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fourbits|T_flip_flop:tff1
+Clk => OUTPUT.CLK
+T => OUTPUT.OUTPUTSELECT
+clear => OUTPUT.OUTPUTSELECT
+Q <= OUTPUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fourbits|T_flip_flop:tff2
+Clk => OUTPUT.CLK
+T => OUTPUT.OUTPUTSELECT
+clear => OUTPUT.OUTPUTSELECT
+Q <= OUTPUT.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|fourbits|T_flip_flop:tff3
+Clk => OUTPUT.CLK
+T => OUTPUT.OUTPUTSELECT
+clear => OUTPUT.OUTPUTSELECT
+Q <= OUTPUT.DB_MAX_OUTPUT_PORT_TYPE
+
+

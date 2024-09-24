@@ -1,0 +1,160 @@
+|word
+Clk => contador_um_segundo:U1.Clk
+Clk => cnt[0].CLK
+Clk => cnt[1].CLK
+Clear => cnt[0].ACLR
+Clear => cnt[1].ACLR
+displays[0] <= display:U5.seg[0]
+displays[1] <= display:U5.seg[1]
+displays[2] <= display:U5.seg[2]
+displays[3] <= display:U5.seg[3]
+displays[4] <= display:U5.seg[4]
+displays[5] <= display:U5.seg[5]
+displays[6] <= display:U5.seg[6]
+displays[7] <= display:U4.seg[0]
+displays[8] <= display:U4.seg[1]
+displays[9] <= display:U4.seg[2]
+displays[10] <= display:U4.seg[3]
+displays[11] <= display:U4.seg[4]
+displays[12] <= display:U4.seg[5]
+displays[13] <= display:U4.seg[6]
+displays[14] <= display:U3.seg[0]
+displays[15] <= display:U3.seg[1]
+displays[16] <= display:U3.seg[2]
+displays[17] <= display:U3.seg[3]
+displays[18] <= display:U3.seg[4]
+displays[19] <= display:U3.seg[5]
+displays[20] <= display:U3.seg[6]
+displays[21] <= display:U2.seg[0]
+displays[22] <= display:U2.seg[1]
+displays[23] <= display:U2.seg[2]
+displays[24] <= display:U2.seg[3]
+displays[25] <= display:U2.seg[4]
+displays[26] <= display:U2.seg[5]
+displays[27] <= display:U2.seg[6]
+
+
+|word|contador_um_segundo:U1
+Clk => T~reg0.CLK
+Clk => count[0].CLK
+Clk => count[1].CLK
+Clk => count[2].CLK
+Clk => count[3].CLK
+Clk => count[4].CLK
+Clk => count[5].CLK
+Clk => count[6].CLK
+Clk => count[7].CLK
+Clk => count[8].CLK
+Clk => count[9].CLK
+Clk => count[10].CLK
+Clk => count[11].CLK
+Clk => count[12].CLK
+Clk => count[13].CLK
+Clk => count[14].CLK
+Clk => count[15].CLK
+Clk => count[16].CLK
+Clk => count[17].CLK
+Clk => count[18].CLK
+Clk => count[19].CLK
+Clk => count[20].CLK
+Clk => count[21].CLK
+Clk => count[22].CLK
+Clk => count[23].CLK
+Clk => count[24].CLK
+Clk => count[25].CLK
+Clk => count[26].CLK
+Clk => count[27].CLK
+Clk => count[28].CLK
+Clk => count[29].CLK
+Clk => count[30].CLK
+T <= T~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|word|display:U2
+binary_in[0] => Mux0.IN5
+binary_in[0] => Mux1.IN5
+binary_in[0] => Mux2.IN5
+binary_in[0] => Mux3.IN5
+binary_in[0] => Mux4.IN5
+binary_in[0] => seg[1].DATAIN
+binary_in[1] => Mux0.IN4
+binary_in[1] => Mux1.IN4
+binary_in[1] => Mux2.IN4
+binary_in[1] => Mux3.IN4
+binary_in[1] => Mux4.IN4
+binary_in[1] => seg[0].DATAIN
+seg[0] <= binary_in[1].DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= binary_in[0].DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|word|display:U3
+binary_in[0] => Mux0.IN5
+binary_in[0] => Mux1.IN5
+binary_in[0] => Mux2.IN5
+binary_in[0] => Mux3.IN5
+binary_in[0] => Mux4.IN5
+binary_in[0] => seg[1].DATAIN
+binary_in[1] => Mux0.IN4
+binary_in[1] => Mux1.IN4
+binary_in[1] => Mux2.IN4
+binary_in[1] => Mux3.IN4
+binary_in[1] => Mux4.IN4
+binary_in[1] => seg[0].DATAIN
+seg[0] <= binary_in[1].DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= binary_in[0].DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|word|display:U4
+binary_in[0] => Mux0.IN5
+binary_in[0] => Mux1.IN5
+binary_in[0] => Mux2.IN5
+binary_in[0] => Mux3.IN5
+binary_in[0] => Mux4.IN5
+binary_in[0] => seg[1].DATAIN
+binary_in[1] => Mux0.IN4
+binary_in[1] => Mux1.IN4
+binary_in[1] => Mux2.IN4
+binary_in[1] => Mux3.IN4
+binary_in[1] => Mux4.IN4
+binary_in[1] => seg[0].DATAIN
+seg[0] <= binary_in[1].DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= binary_in[0].DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|word|display:U5
+binary_in[0] => Mux0.IN5
+binary_in[0] => Mux1.IN5
+binary_in[0] => Mux2.IN5
+binary_in[0] => Mux3.IN5
+binary_in[0] => Mux4.IN5
+binary_in[0] => seg[1].DATAIN
+binary_in[1] => Mux0.IN4
+binary_in[1] => Mux1.IN4
+binary_in[1] => Mux2.IN4
+binary_in[1] => Mux3.IN4
+binary_in[1] => Mux4.IN4
+binary_in[1] => seg[0].DATAIN
+seg[0] <= binary_in[1].DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= binary_in[0].DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= Mux3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= Mux2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= Mux1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= Mux0.DB_MAX_OUTPUT_PORT_TYPE
+
+

@@ -1,0 +1,30 @@
+LIBRARY ieee;
+USE IEEE.STD_LOGIC_1164.ALL;
+USE IEEE.NUMERIC_STD.ALL; -- NECESSÁRIO PARA OPERÇÕES ARITMETICAS
+
+-- Declaração da entidade "Contador"
+entity dezesseisbits is
+    Port (
+        Clk     : in  STD_LOGIC;              -- Entrada de clock
+        Clear   : in  STD_LOGIC;              -- Entrada de reset
+        counter_out       : out STD_LOGIC_VECTOR(15 downto 0)  -- Saída: valor do contador
+    );
+end dezesseisbits;
+
+-- Arquitetura Behavioral para o contador
+architecture Behavioral of dezesseisbits is
+    signal Q : unsigned(15 downto 0) := (others => '0'); -- Sinal interno para armazenar o valor do contador
+begin
+    -- Bloco de processo que é sensível ao sinal de clock e reset
+    process(Clk, Clear)
+    begin
+        if Clear = '1' then
+            Q <= (others => '0');  -- Reset: define o valor do contador para zero
+        elsif rising_edge(Clk) then
+            Q <= Q + 1;        -- Incrementa o valor do contador em 1
+        end if;
+    end process;
+
+    -- A saída 'Q' é conectada ao sinal interno 'count' (convertendo para STD_LOGIC_VECTOR)
+    counter_out <= STD_LOGIC_VECTOR(Q);
+end Behavioral;
